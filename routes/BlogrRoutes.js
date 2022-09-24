@@ -2,9 +2,9 @@ const express = require("express");
 
 const router = express.Router();
 
-const { getall, Pupulate } = require("../Controller/BlogController");
+const { getallBlog, Pupulate } = require("../Controller/BlogController");
 
-// router.get("/", getall);
-router.get("/", Pupulate);
+router.get("/", getallBlog);
+// router.get("/", Pupulate);
 
 module.exports = router;

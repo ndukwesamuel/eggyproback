@@ -1,14 +1,12 @@
 const BlogData = require("../models/BlogModel");
 
-const getall = (req, res) => {
-  let data = [
-    { name: "tunde", id: 1 },
-    { name: "emeka", id: 2 },
-    { name: "kaka", id: 3 },
-    { name: "peter", id: 4 },
-  ];
-
-  res.json(data);
+const getallBlog = async (req, res) => {
+  try {
+    const Blogdata = await BlogData.find();
+    res.status(201).json(Blogdata);
+  } catch (error) {
+    res.status(401).json({ msg: "Data not found" });
+  }
 };
 
 const Pupulate = (req, res) => {
@@ -23,6 +21,6 @@ const Pupulate = (req, res) => {
 };
 
 module.exports = {
-  getall,
+  getallBlog,
   Pupulate,
 };
