@@ -15,18 +15,14 @@ mongoose
 
 app.use(express.json());
 
-// app.get("/", (req, res) => {
-//   let data = [
-//     { name: "tunde", id: 1 },
-//     { name: "emeka", id: 2 },
-//     { name: "kaka", id: 3 },
-//     { name: "peter", id: 4 },
-//   ];
+app.get("/", (req, res) => {
+  const data = [1, 2, 3, 4, 4, 5];
 
-//   res.json(data);
-// });
+  res.status(200).json(data);
+});
 
 app.use("/api/blog/v1", BlogrRoutes);
+
 app.listen(port, () => {
   console.log(`Backend server is running! ${port}`);
 });
